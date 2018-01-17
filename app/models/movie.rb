@@ -16,4 +16,10 @@ class Movie < ActiveRecord::Base
   def grandfathered?
     release_date && release_date < @@grandfathered_date
   end
+  
+  
+  def self.similar_movies(movie)
+    Movie.where director: movie.director
+  end
+
 end

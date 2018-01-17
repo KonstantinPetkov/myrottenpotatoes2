@@ -36,7 +36,7 @@ class MoviesController < ApplicationController
   
   def create
     params.require(:movie)
-    permitted = params[:movie].permit(:title,:rating,:description, :release_date,:director)
+    permitted = params[:movie].permit(:title,:rating,:release_date,:director)
     @movie = Movie.new(permitted)
     if @movie.save
       flash[:notice] = "#{@movie.title} was successfully created."
@@ -53,7 +53,7 @@ class MoviesController < ApplicationController
   def update
     @movie = Movie.find params[:id]
     params.require(:movie)
-    permitted = params[:movie].permit(:title,:rating,:description, :release_date,:director)
+    permitted = params[:movie].permit(:title,:rating,:release_date,:director)
     
     if @movie.update_attributes(permitted)
       flash[:notice] = "#{@movie.title} was successfully updated."
